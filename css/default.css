@@ -1,14 +1,17 @@
 body {
     margin: 0;
     padding: 0;
-    background: #ffe !important;
+    background-color: #8EC5FC;
+    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
     font-size: 12px;
     overflow: hidden;
 }
 
 #mainDiv {
-    width: 100%;
-    height: 100%
+    width: 100vw;
+    height: 100vh;
 }
 
 #loveHeart {
@@ -32,8 +35,8 @@ body {
 #words {
     font-family: "sans-serif";
     width: 500px;
-    font-size: 24px;
-    color: #666
+    font-size: 1.5rem;
+    color: #001b42
 }
 
 #messages {
@@ -70,7 +73,7 @@ body {
     height: 400px;
     color: #333;
     font-family: "Consolas", "Monaco", "Bitstream Vera Sans Mono", "Courier New", "sans-serif";
-    font-size: 12px
+    font-size: 1rem !important;
 }
 
 #code .string {
@@ -108,4 +111,27 @@ body {
     position: absolute;
     top: 100px;
     left: 0
+}
+
+@media screen and (max-width:1024px) {
+    #mainDiv {
+        display: none !important;
+    }
+    #error_404 {
+        display: block !important;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        font-size: 1.8rem !important;
+    }
+}
+
+@media screen and (min-width:1025px) {
+    #mainDiv {
+        display: block !important;
+    }
+    #error_404 {
+        display: none !important;
+    }
 }
