@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,29 @@
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/garden.js"></script>
     <script type="text/javascript" src="js/functions.js"></script>
+    <style>
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 24px;
+            top: 0;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) scale(0.5);
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
+
 <body>
     <div id="error_404">
         <h1>If you want to see it, you can only see on Desktop screen</h1>
@@ -19,30 +42,31 @@
             <div id="code" style="margin-top: 112.5px;">
                 <span class="comments">/**</span><br>
                 <span class="space"><span class="comments">*Start date for two people: April 5, 2024,</span><br>
-                <span class="space"><span class="comments">*Boy Mr. Jayakumar.</span><br>
-                <span class="space"><span class="comments">*Girl Miss. Sivaranjini.</span><br>
-                <span class="space"><span class="comments">*/</span><br>
-                <span class="comments">// Fall in love together.</span><br>
-                The boy love the girl;<br>
-                <span class="comments">// They love each other.</span><br>
-                The girl loved the boy;<br>
-                <span class="comments">// Time flies.</span><br>
-                The boy can not be separated from the girl;<br>
-                <span class="comments">// They never give up on each other.</span><br>
-                The girl can not be separated from the boy;<br>
-                <span class="comments">// The two have a deep affection for each other.</span><br>
-                <span class="comments">// Every day you and I are as sweet as honey.</span><br>
-                <span class="keyword">The boy</span> very <span class="keyword">happy</span>;<br>
-                <span class="keyword">The girl</span> is also very <span class="keyword">happy</span>;<br>
-                <span class="placeholder"><span class="comments">// no matter now</span><br>
-                <span class="placeholder"><span class="comments">// Still in the distant future.</span><br>
-                <span class="placeholder">The boy has but one dream;<br>
-                <span class="comments">// The boy hopes that the girl can be happy forever.</span><br>
-                <br>
-                <br>
-                I want to say:<br>
-                Baby, I love you forever;<br>
-            </span></span></span></span></span></span></div>
+                    <span class="space"><span class="comments">*Boy Mr. Jayakumar.</span><br>
+                        <span class="space"><span class="comments">*Girl Miss. Sivaranjini.</span><br>
+                            <span class="space"><span class="comments">*/</span><br>
+                                <span class="comments">// Fall in love together.</span><br>
+                                The boy love the girl;<br>
+                                <span class="comments">// They love each other.</span><br>
+                                The girl loved the boy;<br>
+                                <span class="comments">// Time flies.</span><br>
+                                The boy can not be separated from the girl;<br>
+                                <span class="comments">// They never give up on each other.</span><br>
+                                The girl can not be separated from the boy;<br>
+                                <span class="comments">// The two have a deep affection for each other.</span><br>
+                                <span class="comments">// Every day you and I are as sweet as honey.</span><br>
+                                <span class="keyword">The boy</span> very <span class="keyword">happy</span>;<br>
+                                <span class="keyword">The girl</span> is also very <span class="keyword">happy</span>;<br>
+                                <span class="placeholder"><span class="comments">// no matter now</span><br>
+                                    <span class="placeholder"><span class="comments">// Still in the distant future.</span><br>
+                                        <span class="placeholder">The boy has but one dream;<br>
+                                            <span class="comments">// The boy hopes that the girl can be happy forever.</span><br>
+                                            <br>
+                                            <br>
+                                            I want to say:<br>
+                                            Baby, I love you forever;<br>
+                                        </span></span></span></span></span></span>
+            </div>
             <div id="loveHeart">
                 <canvas id="garden" width="670" height="625"></canvas>
                 <div id="words">
@@ -89,6 +113,54 @@
                 $("#code").typewriter();
             }
         </script>
+        <script>
+            function createHeart() {
+                const heart = document.createElement("img");
+                heart.classList.add("heart");
+                document.body.appendChild(heart);
+
+                // Random heart images
+                const heartImages = [
+                    "/img/heart-suit.png",
+                    "/img/blue-heart.png",
+                    "/img/yellow-heart.png",
+                    "/img/heart-suit.png",
+                    "/img/green-heart.png",
+                    "/img/heart-suit.png",
+                    "/img/purple-heart.png",
+                    "/img/heart-suit.png",
+                    "/img/blue-heart.png",
+                    "/img/heart-suit.png",
+                    "/img/yellow-heart.png",
+                    "/img/heart-suit.png",
+                    "/img/green-heart.png",
+                    "/img/heart-suit.png",
+                    "/img/purple-heart.png"
+                ];
+                heart.src = heartImages[Math.floor(Math.random() * heartImages.length)];
+
+                // Random position
+                heart.style.left = Math.random() * 100 + "vw";
+
+                // Random size
+                let size = Math.random() * 30 + 20; // Between 20px and 50px
+                heart.style.width = size + "px";
+                heart.style.height = size + "px";
+
+                // Random animation duration
+                let duration = Math.random() * 3 + 2; // Between 2s and 5s
+                heart.style.animationDuration = duration + "s";
+
+                // Remove hearts after they fall
+                setTimeout(() => {
+                    heart.remove();
+                }, duration * 1000);
+            }
+
+            // Generate hearts continuously
+            setInterval(createHeart, 300);
+        </script>
     </div>
 </body>
+
 </html>
